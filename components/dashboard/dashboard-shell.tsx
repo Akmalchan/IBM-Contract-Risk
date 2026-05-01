@@ -86,7 +86,7 @@ export function DashboardShell() {
                     fontSize: 13,
                 }}
             >
-              IBM AI Connected
+              IBM watsonx Live
             </span>
 
                         <span
