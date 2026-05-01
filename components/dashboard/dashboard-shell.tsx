@@ -65,11 +65,24 @@ export function DashboardShell() {
                         gap: 12,
                     }}
                 >
-                    <div>
-                        <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.05em" }}>
-                            ClauseLens
+                    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                        <div
+                            aria-hidden="true"
+                            style={{
+                                width: 22,
+                                height: 22,
+                                background: "#ef4444",
+                                clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
+                                flexShrink: 0,
+                                filter: "drop-shadow(0 8px 18px rgba(239,68,68,0.35))",
+                            }}
+                        />
+                        <div>
+                            <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.05em" }}>
+                                IBM Contract Risk Manager
+                            </div>
+                            <div className="muted">Guest Mode · Contract Risk Workspace</div>
                         </div>
-                        <div className="muted">Guest Mode · Contract Risk Workspace</div>
                     </div>
 
                     <div style={{ display: "flex", gap: 10, alignItems: "center" }}>

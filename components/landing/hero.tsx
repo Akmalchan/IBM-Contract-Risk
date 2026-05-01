@@ -34,6 +34,8 @@ export function Hero({ onContinue }: HeroProps) {
                         <div
                             style={{
                                 display: "inline-flex",
+                                alignItems: "center",
+                                gap: 10,
                                 padding: "8px 12px",
                                 borderRadius: 999,
                                 border: "1px solid rgba(255,255,255,0.12)",
@@ -42,7 +44,18 @@ export function Hero({ onContinue }: HeroProps) {
                                 marginBottom: 18,
                             }}
                         >
-                            AI contract review for high-stakes commercial workflows
+                            <span
+                                aria-hidden="true"
+                                style={{
+                                    width: 0,
+                                    height: 0,
+                                    borderLeft: "7px solid transparent",
+                                    borderRight: "7px solid transparent",
+                                    borderBottom: "12px solid #ef4444",
+                                    filter: "drop-shadow(0 4px 10px rgba(239,68,68,0.35))",
+                                }}
+                            />
+                            IBM contract intelligence for high-stakes commercial workflows
                         </div>
 
                         <h1
@@ -54,7 +67,7 @@ export function Hero({ onContinue }: HeroProps) {
                                 maxWidth: 720,
                             }}
                         >
-                            Enterprise contract risk review, built for decision speed.
+                            IBM Contract Risk Manager for faster, clearer enterprise review.
                         </h1>
 
                         <p
@@ -67,9 +80,9 @@ export function Hero({ onContinue }: HeroProps) {
                                 marginBottom: 28,
                             }}
                         >
-                            ClauseLens transforms raw contract language into a structured risk dashboard
-                            with flagged clauses, missing protections, negotiation guidance, and an
-                            executive summary.
+                            IBM Contract Risk Manager transforms raw contract language into a structured
+                            risk dashboard with flagged clauses, missing protections, negotiation guidance,
+                            and an executive summary.
                         </p>
 
                         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>

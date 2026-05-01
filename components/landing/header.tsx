@@ -20,22 +20,37 @@ export function Header() {
                 }}
             >
                 <div
+                    aria-hidden="true"
                     style={{
                         width: 32,
                         height: 32,
+                        display: "grid",
+                        placeItems: "center",
                         borderRadius: 10,
                         border: "1px solid rgba(255,255,255,0.14)",
                         background:
                             "linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.04))",
                     }}
-                />
-                <span>ClauseLens</span>
+                >
+                    <div
+                        style={{
+                            width: 0,
+                            height: 0,
+                            borderLeft: "8px solid transparent",
+                            borderRight: "8px solid transparent",
+                            borderBottom: "14px solid #ef4444",
+                            transform: "translateY(-1px)",
+                            filter: "drop-shadow(0 4px 10px rgba(239,68,68,0.35))",
+                        }}
+                    />
+                </div>
+                <span>IBM Contract Risk Manager</span>
             </div>
 
             <nav style={{ display: "flex", gap: 18, alignItems: "center" }}>
                 <a
                     className="muted"
-                    href="https://github.com/yourusername"
+                    href="https://github.com/Akmalchan"
                     target="_blank"
                     rel="noreferrer"
                 >
@@ -43,7 +58,7 @@ export function Header() {
                 </a>
                 <a
                     className="muted"
-                    href="https://linkedin.com/in/yourusername"
+                    href="https://www.linkedin.com/in/ashovkatov"
                     target="_blank"
                     rel="noreferrer"
                 >

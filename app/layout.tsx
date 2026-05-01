@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "ClauseLens",
+    title: "Contract Risk Manager",
     description: "Enterprise-grade contract risk review powered by AI.",
 };
 
