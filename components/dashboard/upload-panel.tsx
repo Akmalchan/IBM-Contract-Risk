@@ -24,31 +24,42 @@ export function UploadPanel({
         <section
             className="panel slide-up"
             style={{
-                padding: 20,
+                padding: 22,
                 display: "grid",
-                gap: 16,
+                gap: 18,
+                position: "sticky",
+                top: 20,
             }}
         >
             <div>
-                <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: "-0.03em" }}>
+                <div
+                    style={{
+                        fontSize: 22,
+                        fontWeight: 700,
+                        letterSpacing: "-0.04em",
+                        marginBottom: 6,
+                    }}
+                >
                     Document intake
                 </div>
-                <p className="muted" style={{ marginBottom: 0 }}>
-                    Paste contract language now. PDF upload can be wired next.
+                <p className="muted" style={{ margin: 0, lineHeight: 1.6 }}>
+                    Submit contract text for AI review. File ingestion UI is included for product
+                    presentation; live parsing can be added in a later iteration.
                 </p>
             </div>
 
             <div
                 style={{
-                    border: "1px dashed rgba(255,255,255,0.16)",
+                    border: "1px dashed rgba(255,255,255,0.14)",
                     borderRadius: 20,
                     padding: 18,
                     background: "rgba(255,255,255,0.015)",
                 }}
             >
-                <div style={{ fontWeight: 600, marginBottom: 6 }}>Upload zone</div>
-                <div className="muted" style={{ fontSize: 14 }}>
-                    PDF support placeholder for next step. For now, paste raw contract text below.
+                <div style={{ fontWeight: 600, marginBottom: 8 }}>Upload zone</div>
+                <div className="muted" style={{ fontSize: 14, lineHeight: 1.6 }}>
+                    Planned support: PDF and DOCX ingestion. PNG/image parsing is not enabled in the
+                    current demo build.
                 </div>
             </div>
 
@@ -60,7 +71,7 @@ export function UploadPanel({
                     id="contractText"
                     value={payload.contractText}
                     onChange={(e) => updateField("contractText", e.target.value)}
-                    rows={14}
+                    rows={15}
                     placeholder="Paste contract language here..."
                     style={{
                         width: "100%",
@@ -71,6 +82,7 @@ export function UploadPanel({
                         color: "#f5f5f5",
                         padding: 16,
                         outline: "none",
+                        lineHeight: 1.6,
                     }}
                 />
             </div>
@@ -88,11 +100,11 @@ export function UploadPanel({
                         onChange={(e) => updateField("contractType", e.target.value)}
                         style={inputStyle}
                     >
-                        <option>SaaS Agreement</option>
-                        <option>NDA</option>
-                        <option>Vendor Agreement</option>
-                        <option>Employment Agreement</option>
-                        <option>MSA</option>
+                        <option value="SaaS Agreement">SaaS Agreement</option>
+                        <option value="NDA">NDA</option>
+                        <option value="Vendor Agreement">Vendor Agreement</option>
+                        <option value="Employment Agreement">Employment Agreement</option>
+                        <option value="MSA">MSA</option>
                     </select>
                 </Field>
 
@@ -102,9 +114,9 @@ export function UploadPanel({
                         onChange={(e) => updateField("partyPerspective", e.target.value)}
                         style={inputStyle}
                     >
-                        <option>Buyer</option>
-                        <option>Seller</option>
-                        <option>Neutral</option>
+                        <option value="Buyer">Buyer</option>
+                        <option value="Seller">Seller</option>
+                        <option value="Neutral">Neutral</option>
                     </select>
                 </Field>
 
@@ -123,9 +135,9 @@ export function UploadPanel({
                         onChange={(e) => updateField("reviewMode", e.target.value)}
                         style={inputStyle}
                     >
-                        <option>Standard</option>
-                        <option>Conservative</option>
-                        <option>Aggressive</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Conservative">Conservative</option>
+                        <option value="Aggressive">Aggressive</option>
                     </select>
                 </Field>
             </div>
@@ -152,6 +164,7 @@ export function UploadPanel({
                                     padding: "10px 14px",
                                     borderRadius: 999,
                                     cursor: "pointer",
+                                    transition: "all 0.2s ease",
                                 }}
                             >
                                 {item}
@@ -199,8 +212,11 @@ const inputStyle: React.CSSProperties = {
     width: "100%",
     borderRadius: 16,
     border: "1px solid rgba(255,255,255,0.1)",
-    background: "rgba(255,255,255,0.02)",
+    background: "#111214",
     color: "#f5f5f5",
     padding: "12px 14px",
     outline: "none",
+    appearance: "none",
+    WebkitAppearance: "none",
+    MozAppearance: "none",
 };

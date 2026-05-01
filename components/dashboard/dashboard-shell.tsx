@@ -12,6 +12,8 @@ export function DashboardShell() {
     const [isLoading, setIsLoading] = useState(false);
     const [showExpiredModal, setShowExpiredModal] = useState(false);
     const [result, setResult] = useState<AnalysisResult>(mockAnalysis);
+    const [lastUpdated, setLastUpdated] = useState<string>("Not analyzed yet");
+
     const [payload, setPayload] = useState<AnalyzePayload>({
         contractText:
             "The Provider may terminate this Agreement at any time for convenience with written notice. The Provider's total liability shall not exceed the fees paid in the previous one month. The agreement does not mention data breach notification timelines or service level commitments.",
@@ -43,6 +45,7 @@ export function DashboardShell() {
             }
 
             setResult(data);
+            setLastUpdated(new Date().toLocaleTimeString());
         } catch (error) {
             console.error(error);
             alert("Something went wrong while analyzing the contract.");
@@ -55,37 +58,25 @@ export function DashboardShell() {
         <>
             <ExpiredModal open={showExpiredModal} onClose={() => setShowExpiredModal(false)} />
 
-            <div className="container" style={{ paddingTop: 10, paddingBottom: 36 }}>
+            <div className="container" style={{ paddingTop: 18, paddingBottom: 40 }}>
                 <div
                     style={{
                         display: "flex",
                         justifyContent: "space-between",
                         alignItems: "center",
-                        marginBottom: 20,
+                        marginBottom: 22,
                         gap: 12,
+                        flexWrap: "wrap",
                     }}
                 >
-                    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                        <div
-                            aria-hidden="true"
-                            style={{
-                                width: 22,
-                                height: 22,
-                                background: "#ef4444",
-                                clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
-                                flexShrink: 0,
-                                filter: "drop-shadow(0 8px 18px rgba(239,68,68,0.35))",
-                            }}
-                        />
-                        <div>
-                            <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.05em" }}>
-                                IBM Contract Risk Manager
-                            </div>
-                            <div className="muted">Guest Mode · Contract Risk Workspace</div>
+                    <div>
+                        <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.05em" }}>
+                            IBM Contract Risk Manager
                         </div>
+                        <div className="muted">Guest Mode · Contract Risk Workspace</div>
                     </div>
 
-                    <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                    <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
             <span
                 style={{
                     padding: "8px 12px",
@@ -95,7 +86,19 @@ export function DashboardShell() {
                     fontSize: 13,
                 }}
             >
-              Preview Mode
+              IBM AI Connected
+            </span>
+
+                        <span
+                            style={{
+                                padding: "8px 12px",
+                                borderRadius: 999,
+                                border: "1px solid rgba(255,255,255,0.1)",
+                                color: "#d4d4d8",
+                                fontSize: 13,
+                            }}
+                        >
+              Last analysis: {lastUpdated}
             </span>
 
                         <button
@@ -117,7 +120,7 @@ export function DashboardShell() {
                 <div
                     style={{
                         display: "grid",
-                        gridTemplateColumns: "0.9fr 1.1fr",
+                        gridTemplateColumns: "0.88fr 1.12fr",
                         gap: 18,
                         alignItems: "start",
                     }}
